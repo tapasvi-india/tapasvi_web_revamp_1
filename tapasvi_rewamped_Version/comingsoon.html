@@ -36,13 +36,24 @@
     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
 
     <li class="nav-item position-relative">
-        <a class="nav-link" href="#" id="aboutToggle">About <span style="font-size: 0.7em;">&#9662;</span></a>
-        <ul class="dropdown-menu-custom" style="display: none; position: absolute; background-color: white; padding: 10px; list-style: none;">
-            <li><a class="dropdown-item" href="index.html">Who We Are</a></li>
-            <li><a class="dropdown-item" href="index.html">Our Wings</a></li>
-            <li><a class="dropdown-item" href="index.html">Our Team</a></li>
-        </ul>
-    </li>
+    <a class="nav-link" href="#" id="aboutToggle">About <span style="font-size: 0.7em;">&#9662;</span></a>
+    <ul class="dropdown-menu-custom" style="display: none; position: absolute; background-color: white; padding: 10px; list-style: none;">
+        <li><a class="dropdown-item" href="#about">Who We Are</a></li>
+        <li><a class="dropdown-item" href="#team">Our Team</a></li>
+    </ul>
+</li>
+
+<li class="nav-item position-relative">
+    <a class="nav-link" href="#" id="programToggle">Our Programs <span style="font-size: 0.7em;">&#9662;</span></a>
+    <ul class="dropdown-program-custom" style="display: none; position: absolute; background-color: white; padding: 10px; list-style: none;">
+        <li><a class="dropdown-item" href="comingsoon.html">Elder's Care Centre</a></li>
+        <li><a class="dropdown-item" href="comingsoon.html">Children's Welfare Centre</a></li>
+        <li><a class="dropdown-item" href="comingsoon.html">Women Empowerment</a></li>
+        <li><a class="dropdown-item" href="comingsoon.html">Goshala</a></li>
+        <li><a class="dropdown-item" href="comingsoon.html">CSR Collaborations</a></li>
+        <li><a class="dropdown-item" href="comingsoon.html">Conservation of Resources</a></li>
+    </ul>
+</li>
 
     <li class="nav-item"><a class="nav-link" href="index.html">Donation</a></li>
     <li class="nav-item"><a class="nav-link" href="index.html">Testimonials</a></li>
@@ -137,7 +148,12 @@
                             
                         </li>
                        
-                       
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="index.html">Our Supporters</a>
+
+                            
+                        </li>
                          <li>
                             <i class="fas fa-chevron-right"></i>
                             <a href="index.html">Our Wings</a>
@@ -189,19 +205,28 @@
         crossorigin="anonymous"></script>
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $('#aboutToggle').click(function(e){
-            e.preventDefault();
-            $('.dropdown-menu-custom').slideToggle(200);
-        });
-
-        // Optional: Hide dropdown if clicked outside
-        $(document).click(function(e) {
-            if (!$(e.target).closest('#aboutToggle, .dropdown-menu-custom').length) {
-                $('.dropdown-menu-custom').slideUp(200);
-            }
-        });
+$(document).ready(function() {
+    // About dropdown
+    $('#aboutToggle').click(function(e) {
+        e.preventDefault();
+        $('.dropdown-program-custom').slideUp(200); // Hide other menu
+        $('.dropdown-menu-custom').slideToggle(200);
     });
+
+    // Program dropdown
+    $('#programToggle').click(function(e) {
+        e.preventDefault();
+        $('.dropdown-menu-custom').slideUp(200); // Hide other menu
+        $('.dropdown-program-custom').slideToggle(200);
+    });
+
+    // Close both if clicked outside
+    $(document).click(function(e) {
+        if (!$(e.target).closest('#aboutToggle, .dropdown-menu-custom, #programToggle, .dropdown-program-custom').length) {
+            $('.dropdown-menu-custom, .dropdown-program-custom').slideUp(200);
+        }
+    });
+});
 </script>
 </body>
 
